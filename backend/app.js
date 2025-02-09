@@ -1,6 +1,16 @@
 import sequelize from "./config/db.js"
 
-sequelize.sync({ force: false })
+
+
+sequelize.authenticate()
+    .then(() => {
+        console.log('Database connection established successfully.');
+    })
+    .catch(err => {
+        console.error('Unable to connect to the database:', err);
+    });
+
+sequelize.sync()
     .then(() => {
         console.log('Database synchronized successfully!');
     })

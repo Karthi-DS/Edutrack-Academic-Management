@@ -13,23 +13,7 @@ const sequelize = new Sequelize(process.env.DB_NAME,process.env.DB_USER,process.
     logging:false
 });
 
-// Test the database connection
-sequelize.authenticate()
-    .then(() => {
-        console.log('Database connection established successfully.');
-    })
-    .catch(err => {
-        console.error('Unable to connect to the database:', err);
-    });
 
-// Sync models (optional based on your needs)
-sequelize.sync({ force: false })
-    .then(() => {
-        console.log('Database synchronized successfully!');
-    })
-    .catch(err => {
-        console.error('Database sync failed:', err);
-    });
 
 
 export default sequelize
